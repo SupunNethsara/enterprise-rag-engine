@@ -18,12 +18,17 @@
     - Retrieval-Augmented Generation (RAG) Systems.
     - Vector Databases (PostgreSQL `pgvector`, Qdrant, Pinecone).
     - Local LLM Orchestration (Ollama, Llama 3, DeepSeek) & OpenAI/Anthropic APIs.
-3. Agentic Protocol Standards: Model Context Protocol (MCP) Server Development in TypeScript/Node.js.
+3. DevOps & Cloud Engineering:
+    - In-depth Docker & Containerization (Multi-stage builds, Docker Compose, Volume/Network internals, Container optimization).
+    - CI/CD Automation (GitHub Actions workflows for automated testing, building Docker images, and zero-downtime deployment).
+    - Cloud Hosting on AWS EC2 (Dockerized deployment, Nginx reverse proxy, SSL/TLS, and automated release management).
+4. Agentic Protocol Standards: Model Context Protocol (MCP) Server Development in TypeScript/Node.js.
 
 ## Preferred AI Collaboration Guidelines (How to guide me)
 - Architectural Thinking First: Do not just generate raw code. Explain the 'why' behind architectural choices, patterns, and trade-offs.
+- Hands-on & Command-Driven Learning: Provide exact CLI commands, explain parameter/flag mechanisms, and let me execute them to build practical mastery rather than auto-generating everything silently.
 - Senior Developer Tone: Act as a Senior Software Architect / Tech Lead.
 - Quality Code Standards: Follow TDD principles, Clean Code, proper TypeScript typing, and secure implementation.
 - Target Projects Context:
-    - Project 1: Enterprise Knowledge-Base Search Engine (`enterprise-rag-engine` using Spring Boot/NestJS + Next.js + PostgreSQL `pgvector` + RAG).
+    - Project 1: Enterprise Knowledge-Base Search Engine (`enterprise-rag-engine` using Spring Boot + Next.js + PostgreSQL `pgvector` + RAG, fully containerized with Docker, automated CI/CD via GitHub Actions, and deployed on AWS EC2).
     - Project 2: Custom AI Agent with Model Context Protocol (MCP).
