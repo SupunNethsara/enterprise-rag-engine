@@ -1,6 +1,7 @@
 import { DocumentRecord, ChatResponse } from '@/types/rag';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+// In Next.js with rewrites, use relative paths so all requests stay same-origin (0 CORS issues!)
+const API_BASE_URL = '';
 
 export async function uploadDocument(file: File): Promise<DocumentRecord> {
   const formData = new FormData();
