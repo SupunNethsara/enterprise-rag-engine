@@ -21,6 +21,17 @@ services:
     networks:
       - rag-network
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: rag-ollama-prod
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_prod:/root/.ollama
+    networks:
+      - rag-network
+
   backend:
     build:
       context: ./backend
@@ -30,15 +41,15 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      ollama:
+        condition: service_started
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/enterprise_rag_db
       SPRING_DATASOURCE_USERNAME: rag_user
       SPRING_DATASOURCE_PASSWORD: rag_password
-      SPRING_AI_OLLAMA_BASE_URL: http://host.docker.internal:11434
+      SPRING_AI_OLLAMA_BASE_URL: http://ollama:11434
     ports:
       - "8080:8080"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     networks:
       - rag-network
 
@@ -59,6 +70,7 @@ services:
 
 volumes:
   pgdata_prod:
+  ollama_prod:
 
 networks:
   rag-network:
