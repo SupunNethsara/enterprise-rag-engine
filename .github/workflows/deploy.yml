@@ -59,7 +59,7 @@ jobs:
       - name: Install & Build Next.js Frontend
         working-directory: ./frontend
         run: |
-          npm ci
+          npm install
           npm run build
 
   # ------------------------------------------------------------------
