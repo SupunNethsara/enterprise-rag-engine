@@ -3,29 +3,28 @@ spring:
     name: rag-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/enterprise_rag_db
-    username: rag_user
-    password: rag_password
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/enterprise_rag_db}
+    username: ${SPRING_DATASOURCE_USERNAME:rag_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:rag_password}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   ai:
     ollama:
-      base-url: http://localhost:11434
+      base-url: ${SPRING_AI_OLLAMA_BASE_URL:http://localhost:11434}
       chat:
         options:
-          model: llama3.2
+          model: ${SPRING_AI_OLLAMA_CHAT_MODEL:llama3.2:1b}
       embedding:
         options:
-          model: nomic-embed-text
+          model: ${SPRING_AI_OLLAMA_EMBEDDING_MODEL:nomic-embed-text}
     vectorstore:
       pgvector:
         index-type: HNSW

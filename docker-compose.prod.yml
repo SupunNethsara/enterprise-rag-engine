@@ -48,6 +48,7 @@ services:
       SPRING_DATASOURCE_USERNAME: rag_user
       SPRING_DATASOURCE_PASSWORD: rag_password
       SPRING_AI_OLLAMA_BASE_URL: http://ollama:11434
+      SPRING_AI_OLLAMA_CHAT_MODEL: llama3.2:1b
     ports:
       - "8080:8080"
     networks:

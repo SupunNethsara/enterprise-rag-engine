@@ -93,7 +93,7 @@ export const ChatInterface: React.FC = () => {
         <div className="hidden sm:flex items-center gap-2">
           <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            Ollama (llama3.2 + nomic-embed)
+            Ollama (llama3.2:1b + nomic-embed)
           </span>
         </div>
       </div>

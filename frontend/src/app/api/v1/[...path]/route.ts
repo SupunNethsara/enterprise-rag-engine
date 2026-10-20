@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const maxDuration = 120; // 2 minutes maximum execution duration
+
 function getBackendUrl(): string {
   return process.env.INTERNAL_BACKEND_URL || 'http://localhost:8080';
 }
@@ -17,6 +19,7 @@ export async function GET(
         accept: req.headers.get('accept') || 'application/json',
       },
       cache: 'no-store',
+      signal: AbortSignal.timeout(120000), // 2-minute timeout
     });
 
     const data = await res.arrayBuffer();
@@ -52,6 +55,7 @@ export async function POST(
       method: 'POST',
       headers,
       body,
+      signal: AbortSignal.timeout(120000), // 2-minute timeout for LLM inference
     });
 
     const data = await res.arrayBuffer();

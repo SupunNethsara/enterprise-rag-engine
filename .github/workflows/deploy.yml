@@ -96,14 +96,14 @@ jobs:
             git reset --hard origin/main
 
             # Build and deploy production containers
-            echo "🐳 Building and spinning up production containers..."
+            echo "🏗️ Building and spinning up production containers..."
             docker compose -f docker-compose.prod.yml up --build -d --remove-orphans
 
             # Ensure Ollama container is up and pull the required AI models
-            echo "🧠 Pulling AI models into Ollama container..."
+            echo "🤖 Pulling AI models into Ollama container..."
             sleep 5
             docker exec rag-ollama-prod ollama pull nomic-embed-text
-            docker exec rag-ollama-prod ollama pull llama3.2
+            docker exec rag-ollama-prod ollama pull llama3.2:1b
 
             # Clean up old unused images to preserve disk space on EC2
             echo "🧹 Pruning unused Docker images..."
