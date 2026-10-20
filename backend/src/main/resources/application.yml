@@ -18,19 +18,19 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   ai:
-    openai:
-      api-key: ${OPENAI_API_KEY:}
+    ollama:
+      base-url: http://localhost:11434
       chat:
         options:
-          model: gpt-4o-mini
+          model: llama3.2
       embedding:
         options:
-          model: text-embedding-3-small
+          model: nomic-embed-text
     vectorstore:
       pgvector:
         index-type: HNSW
-        distance-type: COSINE
-        dimensions: 1536
+        distance-type: COSINE_DISTANCE
+        dimensions: 768
         initialize-schema: true
 
 server:
